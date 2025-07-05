@@ -1,0 +1,25 @@
+[project]
+name = "1-local-setup"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "rafael.amorim",email = "raffaekk@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "duckdb (>=1.3.1,<2.0.0)",
+    "faker (>=37.4.0,<38.0.0)",
+    "pandas (>=2.3.0,<3.0.0)",
+    "numpy (>=2.3.1,<3.0.0)",
+    "dbt-core (>=1.10.3,<2.0.0)",
+    "dbt-postgres (>=1.9.0,<2.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "1_local_setup", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

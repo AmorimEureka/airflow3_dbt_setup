@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:17rc1-alpine3.19
+    restart: unless-stopped
+    container_name: destination_dw_postgres
+    env_file: ./.env
+    ports:
+      - "5442:5432"
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d dba_prj"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres-volume:
+
